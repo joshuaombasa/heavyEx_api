@@ -22,7 +22,11 @@ app.use(cors())
 
 app.use(middleware.requestLogger)
 
-app.use('/api/equipemnt', equipmentRouter)
+app.use('/api/equipment', equipmentRouter)
 
+app.use(middleware.unknownEndpointHandler)
+
+
+app.use(middleware.errorHandler)
 
 module.exports = app
