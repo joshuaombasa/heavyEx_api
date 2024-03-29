@@ -1,3 +1,6 @@
+const Equipment = require('../models/equpment')
+
+
 const constructionEquipment = [
     {
         name: "Excavator",
@@ -26,11 +29,26 @@ const constructionEquipment = [
         description: "A device that mixes cement, aggregate, and water to form concrete mechanically.",
         type: "Mixing Equipment",
         imageUrl: "https://example.com/concrete-mixer.jpg"
-    },
-    {
+    },]
+
+const equipmentInDb = async () => {
+    const response = await Equipment.find({})
+    return response
+}
+
+
+const getnonExistentId = async () => {
+    const equipmentObject = new Equipment({
         name: "Backhoe Loader",
         price: 120000,
         description: "A versatile piece of heavy equipment that can be used as an excavator and as a loader. It has a digging bucket on one end and a loader bucket on the other end.",
         type: "Heavy Machinery",
         imageUrl: "https://example.com/concrete-mixer.jpg"
-    }]
+    })
+
+    const savedEquipement = await equipmentObject.save()
+    await Equipment.findByIdAndDelete(savedEquipement._id)
+    return savedEquipement._id.toString()
+}
+
+module.exports = { constructionEquipment, equipmentInDb,getnonExistentId }
