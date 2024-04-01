@@ -51,4 +51,31 @@ const getnonExistentId = async () => {
     return savedEquipement._id.toString()
 }
 
-module.exports = { constructionEquipment, equipmentInDb,getnonExistentId }
+const newEquipment = {
+    name: "Concrete Mixer",
+    price: 50000,
+    description: "A device that mixes cement, aggregate, and water to form concrete mechanically.",
+    type: "Mixing Equipment",
+    imageUrl: "https://example.com/concrete-mixer.jpg"
+}
+
+const InvalidEqupment = {
+    name: "Invalid Equpment",
+    imageUrl: "https://example.com/concrete-mixer.jpg"
+}
+
+const updateData = {
+    name: "Concrete Mixer",
+    price: 50000,
+    description: "A device that mixes cement, aggregate, and water to form concrete mechanically.",
+    type: "Mixing Equipment",
+    imageUrl: "https://example.com/concrete-mixer.jpg"
+}
+module.exports = {
+    constructionEquipment,
+    equipmentInDb,
+    getnonExistentId,
+    newEquipment,
+    InvalidEqupment,
+    updateData
+}
