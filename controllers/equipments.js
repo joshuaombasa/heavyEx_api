@@ -1,6 +1,10 @@
 const equipmentRouter = require('express').Router()
 const Equipment = require('../models/equpment')
 
+// const getToken = async(request, response, next) => {
+//     const token = request.h
+// }
+
 
 equipmentRouter.get('/', async (request, response, next) => {
     try {
