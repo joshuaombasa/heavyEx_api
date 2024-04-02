@@ -8,6 +8,7 @@ const config = require('./utils/config')
 const logger = require('./utils/logger')
 
 const equipmentRouter = require('./controllers/equipments')
+const usersRouter = require('./controllers/users')
 
 
 mongoose.set('strictQuery', false)
@@ -23,6 +24,7 @@ app.use(cors())
 app.use(middleware.requestLogger)
 
 app.use('/api/equipment', equipmentRouter)
+app.use('/api/users', usersRouter)
 
 app.use(middleware.unknownEndpointHandler)
 
