@@ -6,10 +6,12 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     passwordHash: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },
+    equipment: { type: mongoose.Schema.Types.ObjectId,ref:'Equipment' }
+    
 })
 
 userSchema.set('toJSON', {
-    transform:(document, returnedObject) => {
+    transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
 
         delete returnedObject._id
