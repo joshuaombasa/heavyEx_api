@@ -20,6 +20,7 @@ loginRouter.post('/', async (request, response) => {
     const userObjectForToken = {
         username: user.username,
         name: user.name,
+        id:user._id,
         email: user.name
     }
 
